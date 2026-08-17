@@ -25,7 +25,7 @@ public class Product implements Serializable {
     private final Set<Category> categories = new HashSet<>(); // Set garante que não tenha categorias repetidas
 
     @OneToMany(mappedBy = "id.product")
-    private Set<OrderItem> items = new HashSet<>();
+    private final Set<OrderItem> items = new HashSet<>();
 
     public Product() {
     }
