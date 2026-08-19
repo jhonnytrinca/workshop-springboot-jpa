@@ -2,6 +2,7 @@ package com.testesjava.curso_jpa_spring.services;
 
 import com.testesjava.curso_jpa_spring.entities.Product;
 import com.testesjava.curso_jpa_spring.repositories.ProductRepository;
+import com.testesjava.curso_jpa_spring.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,6 @@ public class ProductService {
 
     public Product findById(Long id) {
         Optional<Product> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }
