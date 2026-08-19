@@ -21,6 +21,7 @@ import java.io.Serializable;
 public class OrderItem implements Serializable {
 
     @EmbeddedId
+    @JsonIgnore
     @EqualsAndHashCode.Include
     private final OrderItemPK id = new OrderItemPK();
     private Integer quantity;
