@@ -3,6 +3,7 @@ package com.testesjava.curso_jpa_spring.config;
 import com.testesjava.curso_jpa_spring.entities.*;
 import com.testesjava.curso_jpa_spring.entities.enums.OrderStatus;
 import com.testesjava.curso_jpa_spring.repositories.*;
+import org.jspecify.annotations.NullMarked;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 
 @Configuration
 @Profile("test")
+@NullMarked
 public class TestConfig implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
@@ -30,7 +32,7 @@ public class TestConfig implements CommandLineRunner {
     private OrderItemRepository orderItemRepository;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
         User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
